@@ -1,0 +1,46 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environment
+.env
+
+# Data (only samples allowed in git)
+data/raw/
+data/processed/
+
+# Model artifacts
+models/
+artifacts/
+*.pkl
+*.joblib
+*.keras
+*.h5
+*.pt
+*.pth
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Test / coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# mypy
+.mypy_cache/
