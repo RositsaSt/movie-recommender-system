@@ -39,7 +39,7 @@ class HybridRecommender(BaseRecommender):
         df: pd.DataFrame,
         embeddings: np.ndarray | None = None,
         show_progress: bool = False,
-    ) -> "HybridRecommender":
+    ) -> HybridRecommender:
         """Build the combined feature matrix and fit the KNN index.
 
         Args:

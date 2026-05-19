@@ -16,7 +16,7 @@ class BaseRecommender(ABC):
         """Short identifier used in API responses and logs."""
 
     @abstractmethod
-    def fit(self, df: pd.DataFrame) -> "BaseRecommender":
+    def fit(self, df: pd.DataFrame) -> BaseRecommender:
         """Fit the model on a raw Letterboxd DataFrame from load_letterboxd()."""
 
     @abstractmethod
@@ -28,7 +28,9 @@ class BaseRecommender(ABC):
 
     def _require_fitted(self) -> None:
         if not hasattr(self, "_df") or self._df is None:
-            raise RuntimeError(f"{self.__class__.__name__} must be fitted before calling recommend().")
+            raise RuntimeError(
+                f"{self.__class__.__name__} must be fitted before calling recommend()."
+            )
 
     @staticmethod
     def _row_to_dict(row: pd.Series) -> dict:
@@ -38,6 +40,8 @@ class BaseRecommender(ABC):
             "year": int(row["year"]) if pd.notna(row.get("year")) else None,
             "genres": row.get("genre_list", ""),
             "language": row.get("language", ""),
-            "rating": round(float(row["combined_rating"]), 2) if pd.notna(row.get("combined_rating")) else None,
+            "rating": round(float(row["combined_rating"]), 2)
+            if pd.notna(row.get("combined_rating"))
+            else None,
             "description": str(row.get("description", ""))[:300],
         }

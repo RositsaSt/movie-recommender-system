@@ -16,7 +16,7 @@ class PopularityRecommender(BaseRecommender):
 
     name = "popularity"
 
-    def fit(self, df: pd.DataFrame) -> "PopularityRecommender":
+    def fit(self, df: pd.DataFrame) -> PopularityRecommender:
         """Store the dataset; no training required."""
         self._df = df.reset_index(drop=True)
         return self

@@ -31,9 +31,13 @@ def rerank(
     Returns:
         Candidates sorted by final_score descending, with ``final_score`` added.
     """
-    w_sim = similarity_weight if similarity_weight is not None else settings.rerank_similarity_weight
+    w_sim = (
+        similarity_weight if similarity_weight is not None else settings.rerank_similarity_weight
+    )
     w_rat = rating_weight if rating_weight is not None else settings.rerank_rating_weight
-    w_pop = popularity_weight if popularity_weight is not None else settings.rerank_popularity_weight
+    w_pop = (
+        popularity_weight if popularity_weight is not None else settings.rerank_popularity_weight
+    )
 
     if not candidates:
         return []

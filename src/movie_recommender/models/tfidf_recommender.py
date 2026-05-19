@@ -21,7 +21,7 @@ class TFIDFRecommender(BaseRecommender):
     def __init__(self, max_features: int = 10_000) -> None:
         self._max_features = max_features
 
-    def fit(self, df: pd.DataFrame) -> "TFIDFRecommender":
+    def fit(self, df: pd.DataFrame) -> TFIDFRecommender:
         """Vectorize descriptions and fit the KNN index."""
         self._df = df.reset_index(drop=True)
         texts = self._df["description"].fillna("").tolist()
